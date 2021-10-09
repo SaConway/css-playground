@@ -32,6 +32,6 @@ export default {
   width: calc(min(300px, 100%));
   aspect-ratio: calc(v-bind(imgWidth) / v-bind(imgHeight));
   object-fit: cover;
-  transition: aspect-ratio 300ms ease-in-out;
+  transition: aspect-ratio var(--transition-duration) var(--transition-timing-function);
 }
 </style>
