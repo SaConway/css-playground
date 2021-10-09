@@ -1,8 +1,16 @@
 <template>
   <main class="property_layout">
+    <!-- TITLE -->
     <pre class="property_title">{{ title }}</pre>
 
-    <slot />
+    <!-- INPUT -->
+    <label class="horizontal_flow">
+      <span>{{ `${name}:` }}</span>
+      <slot name="property_input" />
+    </label>
+
+    <!-- OUTPUT -->
+    <slot name="property_output" />
   </main>
 </template>
 
@@ -10,9 +18,18 @@
 export default {
   name: 'PropertyLayout',
   props: {
-    title: {
+    name: {
       type: String,
       required: true
+    },
+    syntax: {
+      type: String,
+      required: true
+    }
+  },
+  computed: {
+    title() {
+      return `${this.name}: ${this.syntax};`
     }
   }
 }

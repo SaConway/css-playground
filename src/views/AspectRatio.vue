@@ -1,13 +1,14 @@
 <template>
-  <property-layout title="aspect-ratio: width / height;">
-    <label class="horizontal_flow">
-      <span>aspect-ratio:</span>
+  <property-layout name="aspect-ratio" syntax="width / height">
+    <template #property_input>
       <base-input id="width" value="1" @input="imgWidth = $event.target.value" />
       <span>/</span>
       <base-input id="height" value="1" @input="imgHeight = $event.target.value" />
-    </label>
+    </template>
 
-    <img class="image" src="https://source.unsplash.com/random" />
+    <template #property_output>
+      <img class="image" src="https://source.unsplash.com/random" />
+    </template>
   </property-layout>
 </template>
 

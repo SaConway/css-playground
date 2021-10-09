@@ -1,13 +1,14 @@
 <template>
-  <property-layout title="outline: outline-color outline-style outline-width;">
-    <label class="horizontal_flow">
-      <span>outline:</span>
+  <property-layout name="outline" syntax="outline-color outline-style outline-width">
+    <template #property_input>
       <base-input id="color" :value="outlineClr" @input="outlineClr = $event.target.value" />
       <base-input id="style" :value="outlineStyle" @input="outlineStyle = $event.target.value" />
       <base-input id="width" :value="outlineWidth" @input="outlineWidth = $event.target.value" />
-    </label>
+    </template>
 
-    <div class="box">I'm a box with an outline</div>
+    <template #property_output>
+      <div class="box">I'm a box with an outline</div>
+    </template>
   </property-layout>
 </template>
 
