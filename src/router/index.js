@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import AspectRatio from '../views/AspectRatio.vue'
+import Outline from '../views/Outline.vue'
 
 const routes = [
   {
     path: '/',
     name: 'AspectRatio',
     component: AspectRatio
+  },
+  {
+    path: '/outline',
+    name: 'Outline',
+    component: Outline
   }
   // {
   // path: '/about',

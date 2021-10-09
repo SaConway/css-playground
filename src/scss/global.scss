@@ -36,3 +36,7 @@ label {
 :focus {
   outline: 2px solid var(--clr-primary);
 }
+
+.horizontal_flow > * + * {
+  margin-left: 1rem;
+}

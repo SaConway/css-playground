@@ -1,9 +1,9 @@
 <template>
   <property-layout title="aspect-ratio: width / height;">
-    <label>
-      aspect-ratio:
+    <label class="horizontal_flow">
+      <span>aspect-ratio:</span>
       <base-input id="width" value="1" @input="imgWidth = $event.target.value" />
-      /
+      <span>/</span>
       <base-input id="height" value="1" @input="imgHeight = $event.target.value" />
     </label>
 
