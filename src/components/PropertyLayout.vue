@@ -38,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 .property_layout {
   max-width: 100rem;
+  height: fit-content;
   margin: 0 auto;
   display: grid;
   place-items: center;
@@ -48,6 +49,6 @@ export default {
 .property_title {
   border-left: 2px solid var(--clr-primary);
   padding: 2rem;
-  background-color: rgba(50, 50, 50, 1);
+  background-color: var(--clr-accent);
 }
 </style>
