@@ -23,8 +23,8 @@ export default {
 input {
   padding: 2rem 0.25rem;
   color: var(--clr-secondary);
-  background: none;
-  border: 1px solid;
+  background-color: transparent;
+  border: 1px solid currentColor;
   border-radius: var(--border-radius);
   text-align: center;
   font-size: 1.4rem;

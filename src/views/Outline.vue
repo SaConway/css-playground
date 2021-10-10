@@ -2,7 +2,9 @@
   <property-layout name="outline" syntax="outline-color outline-style outline-width">
     <template #property_input>
       <base-input id="color" :value="outlineClr" @input="outlineClr = $event.target.value" />
-      <base-input id="style" :value="outlineStyle" @input="outlineStyle = $event.target.value" />
+
+      <base-select :options="outlineStyleOpitons" :selected="outlineStyle" @change="outlineStyle = $event.target.value" />
+
       <base-input id="width" :value="outlineWidth" @input="outlineWidth = $event.target.value" />
     </template>
 
@@ -15,13 +17,15 @@
 <script>
 import PropertyLayout from '@/components/PropertyLayout.vue'
 import BaseInput from '@/components/BaseInput.vue'
+import BaseSelect from '@/components/BaseSelect.vue'
 
 export default {
   name: 'AspectRatio',
-  components: { PropertyLayout, BaseInput },
+  components: { PropertyLayout, BaseInput, BaseSelect },
   data() {
     return {
       outlineClr: 'pink',
+      outlineStyleOpitons: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'],
       outlineStyle: 'dashed',
       outlineWidth: '5px'
     }
