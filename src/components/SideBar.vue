@@ -32,14 +32,14 @@ export default {
   padding: 1rem;
   display: block;
 
-  &::before {
-    content: '//';
-    margin-right: 0.5rem;
-    color: inherit;
+  &:hover:not(.router-link-active) {
+    outline: 1px solid;
   }
 
   &.router-link-active {
+    cursor: default;
     color: var(--clr-secondary);
+    user-select: text;
   }
 }
 </style>

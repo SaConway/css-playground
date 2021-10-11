@@ -21,7 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 input {
-  padding: 2rem 0.25rem;
+  cursor: pointer;
+  padding: 2rem 4rem;
   color: var(--clr-secondary);
   background-color: transparent;
   border: 1px solid currentColor;

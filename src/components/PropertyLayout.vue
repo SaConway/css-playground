@@ -4,10 +4,12 @@
     <pre class="property_title">{{ title }}</pre>
 
     <!-- INPUT -->
-    <label class="horizontal_flow">
-      <span>{{ `${name}:` }}</span>
+    <!-- <label class="horizontal_flow"> -->
+    <!-- <span>{{ `${name}:` }}</span> -->
+    <div class="property_input">
       <slot name="property_input" />
-    </label>
+    </div>
+    <!-- </label> -->
 
     <!-- OUTPUT -->
     <slot name="property_output" />
@@ -41,9 +43,14 @@ export default {
   height: fit-content;
   margin: 0 auto;
   display: grid;
-  place-items: center;
   gap: 6rem;
   padding: 3rem 1rem;
+}
+
+.property_input {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
 }
 
 .property_title {

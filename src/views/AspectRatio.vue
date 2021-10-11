@@ -34,5 +34,6 @@ export default {
   aspect-ratio: calc(v-bind(imgWidth) / v-bind(imgHeight));
   object-fit: cover;
   transition: aspect-ratio var(--transition-duration) var(--transition-timing-function);
+  border-radius: var(--border-radius);
 }
 </style>

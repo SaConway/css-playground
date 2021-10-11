@@ -1,11 +1,20 @@
 <template>
   <property-layout name="outline" syntax="outline-color outline-style outline-width">
     <template #property_input>
-      <base-input id="color" :value="outlineClr" @input="outlineClr = $event.target.value" />
+      <label>
+        outline-color:
+        <base-input id="color" :value="outlineClr" @input="outlineClr = $event.target.value" />
+      </label>
 
-      <base-select :options="outlineStyleOpitons" :selected="outlineStyle" @change="outlineStyle = $event.target.value" />
+      <label>
+        outline-style:
+        <base-select :options="outlineStyleOpitons" :selected="outlineStyle" @change="outlineStyle = $event.target.value" />
+      </label>
 
-      <base-input id="width" :value="outlineWidth" @input="outlineWidth = $event.target.value" />
+      <label>
+        outline-width:
+        <base-input id="width" :value="outlineWidth" @input="outlineWidth = $event.target.value" />
+      </label>
     </template>
 
     <template #property_output>

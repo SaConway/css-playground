@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .base_select {
-  display: grid;
+  display: inline-grid;
   align-items: center;
 
   &::after,
@@ -37,7 +37,7 @@ export default {
   select {
     appearance: none;
     cursor: pointer;
-    padding: 2rem 0.25rem;
+    padding: 2rem 4rem;
     line-height: 1.1;
     font-size: 1.4rem;
     font-family: inherit;
