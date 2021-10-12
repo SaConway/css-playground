@@ -1,6 +1,6 @@
 <template>
   <div class="base_select">
-    <select>
+    <select class="input">
       <option v-for="option in options" :key="option" :value="option" :selected="option === selected">{{ option }}</option>
     </select>
   </div>
@@ -36,16 +36,6 @@ export default {
 
   select {
     appearance: none;
-    cursor: pointer;
-    padding: 2rem 4rem;
-    line-height: 1.1;
-    font-size: 1.4rem;
-    font-family: inherit;
-    text-align: center;
-    background-color: transparent;
-    color: var(--clr-secondary);
-    border: 1px solid currentColor;
-    border-radius: var(--border-radius);
   }
 
   // CUSTOM ARROW
