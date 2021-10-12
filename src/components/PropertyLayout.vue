@@ -4,12 +4,9 @@
     <pre class="property_title">{{ title }}</pre>
 
     <!-- INPUT -->
-    <!-- <label class="horizontal_flow"> -->
-    <!-- <span>{{ `${name}:` }}</span> -->
     <div class="property_input">
       <slot name="property_input" />
     </div>
-    <!-- </label> -->
 
     <!-- OUTPUT -->
     <slot name="property_output" />
@@ -49,8 +46,9 @@ export default {
 
 .property_input {
   display: grid;
-  grid-auto-flow: row;
-  gap: 2rem;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  gap: 2rem 1rem;
 }
 
 .property_title {

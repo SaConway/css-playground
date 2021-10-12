@@ -1,7 +1,7 @@
 <template>
   <div class="picker_layout">
     <!-- PICKER BUTTON -->
-    <button class="input" @click="openPicker">{{ value }}</button>
+    <input class="input" :id="id" type="button" :value="value" @click="openPicker" />
 
     <!-- PICKER COLORS -->
     <ul v-show="showPicker" class="picker">
@@ -21,6 +21,10 @@ import Colors from '@/utils/colors'
 export default {
   name: 'ColorPicker',
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     value: {
       type: String,
       required: true
@@ -51,7 +55,10 @@ export default {
 <style lang="scss" scoped>
 .picker_layout {
   position: relative;
-  display: inline-block;
+}
+
+.input {
+  width: 100%;
 }
 
 .picker {

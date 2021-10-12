@@ -1,6 +1,6 @@
 <template>
   <div class="base_select">
-    <select class="input">
+    <select class="input" :id="id">
       <option v-for="option in options" :key="option" :value="option" :selected="option === selected">{{ option }}</option>
     </select>
   </div>
@@ -10,6 +10,10 @@
 export default {
   name: 'BaseSelect',
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     options: {
       type: Array,
       required: true
