@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'TextInput',
   props: {
     id: {
       type: String,

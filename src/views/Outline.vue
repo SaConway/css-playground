@@ -8,7 +8,7 @@
       <base-select id="outline_style" :options="outlineStyleOpitons" :selected="outlineStyle" label="outline-style:" @change="outlineStyle = $event" />
 
       <!-- OUTLINE WIDTH -->
-      <base-input id="outline_width" :value="outlineWidth" label="outline-width" @input="outlineWidth = $event" />
+      <text-input id="outline_width" :value="outlineWidth" label="outline-width" @input="outlineWidth = $event" />
     </template>
 
     <template #property_output>
@@ -20,13 +20,13 @@
 <script>
 import Colors from '@/utils/colors'
 import PropertyLayout from '@/components/PropertyLayout.vue'
-import BaseInput from '@/components/BaseInput.vue'
+import TextInput from '@/components/TextInput.vue'
 import BaseSelect from '@/components/BaseSelect.vue'
 import ColorPicker from '@/components/ColorPicker.vue'
 
 export default {
   name: 'AspectRatio',
-  components: { PropertyLayout, BaseInput, BaseSelect, ColorPicker },
+  components: { PropertyLayout, TextInput, BaseSelect, ColorPicker },
   data() {
     return {
       outlineClr: Colors.RED.value,
