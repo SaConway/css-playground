@@ -1,5 +1,9 @@
 <template>
-  <input class="input" :id="id" :value="value" />
+  <!-- LABEL -->
+  <label :for="id">{{ label }}</label>
+
+  <!-- INPUT -->
+  <input class="input" :id="id" :value="value" @input="onInput" />
 </template>
 
 <script>
@@ -14,6 +18,15 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    label: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    onInput(e) {
+      this.$emit('input', e.target.value)
     }
   }
 }

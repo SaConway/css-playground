@@ -1,9 +1,11 @@
 <template>
   <property-layout name="aspect-ratio" syntax="width / height">
     <template #property_input>
-      <base-input id="width" value="1" @input="imgWidth = $event.target.value" />
-      <span>/</span>
-      <base-input id="height" value="1" @input="imgHeight = $event.target.value" />
+      <!-- WIDTH -->
+      <base-input id="width" value="1" label="width:" @input="imgWidth = $event" />
+
+      <!-- HEIGHT -->
+      <base-input id="height" value="1" label="height:" @input="imgHeight = $event" />
     </template>
 
     <template #property_output>

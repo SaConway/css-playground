@@ -1,4 +1,7 @@
 <template>
+  <!-- LABEL -->
+  <label :for="id">{{ label }}</label>
+
   <div class="picker_layout">
     <!-- PICKER BUTTON -->
     <input class="input" :id="id" type="button" :value="value" @click="openPicker" />
@@ -26,6 +29,10 @@ export default {
       required: true
     },
     value: {
+      type: String,
+      required: true
+    },
+    label: {
       type: String,
       required: true
     }

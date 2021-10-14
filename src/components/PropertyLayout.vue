@@ -36,12 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 .property_layout {
-  max-width: 100rem;
+  max-width: 60rem;
   height: fit-content;
   margin: 0 auto;
   display: grid;
   gap: 6rem;
-  padding: 3rem 1rem;
+  padding: 3rem;
 }
 
 .property_input {

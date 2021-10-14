@@ -1,6 +1,10 @@
 <template>
+  <!-- LABEL -->
+  <label :for="id">{{ label }}</label>
+
+  <!-- SELECT -->
   <div class="base_select">
-    <select class="input" :id="id">
+    <select class="input" :id="id" @change="onChange">
       <option v-for="option in options" :key="option" :value="option" :selected="option === selected">{{ option }}</option>
     </select>
   </div>
@@ -22,6 +26,15 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    label: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    onChange(e) {
+      this.$emit('change', e.target.value)
     }
   }
 }
