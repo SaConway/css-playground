@@ -2,16 +2,24 @@
   <aside class="side_bar">
     <nav>
       <ul class="nav_list">
-        <li><router-link class="link" to="/aspect-ratio">aspect-ratio</router-link></li>
-        <li><router-link class="link" to="/outline">outline</router-link></li>
+        <li v-for="property in Properties" :key="property.name">
+          <router-link class="link" :to="property.path">{{ property.name }}</router-link>
+        </li>
       </ul>
     </nav>
   </aside>
 </template>
 
 <script>
+import Properties from '@/utils/properties'
+
 export default {
-  name: 'SideBar'
+  name: 'SideBar',
+  data() {
+    return {
+      Properties
+    }
+  }
 }
 </script>
 

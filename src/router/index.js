@@ -1,23 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import AspectRatio from '../views/AspectRatio.vue'
-import Outline from '../views/Outline.vue'
+import Properties from '@/utils/properties'
 
-const routes = [
-  {
-    path: '/',
-    redirect: 'aspect-ratio'
-  },
-  {
-    path: '/aspect-ratio',
-    name: 'AspectRatio',
-    component: AspectRatio
-  },
-  {
-    path: '/outline',
-    name: 'Outline',
-    component: Outline
+const routes = Object.values(Properties).map(property => {
+  return {
+    path: `/${property.path}`,
+    name: property.name,
+    component: property.component
   }
-]
+})
 
 const router = createRouter({
   history: createWebHashHistory(),
