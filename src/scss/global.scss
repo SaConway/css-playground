@@ -36,6 +36,14 @@ label {
   font-size: var(fs-300);
 }
 
+button {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  line-height: 1;
+}
+
 :focus {
   outline: none;
 }

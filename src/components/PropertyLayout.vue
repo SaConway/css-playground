@@ -4,7 +4,11 @@
     <h1 class="property_title">{{ title }}</h1>
 
     <!-- OUTPUT CODE -->
-    <pre class="property_output_code">{{ output }}</pre>
+    <div>
+      <pre class="property_output_code">{{ output }}</pre>
+
+      <button :class="['copy_btn', { success: showCopySuccess }]" @click="copyToClipboard">Copy to clipboard</button>
+    </div>
 
     <!-- INPUT -->
     <div class="property_input">
@@ -33,9 +37,22 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      showCopySuccess: false
+    }
+  },
   computed: {
     title() {
       return `${this.name}: ${this.syntax};`
+    }
+  },
+  methods: {
+    copyToClipboard() {
+      navigator.clipboard.writeText(this.output).then(() => {
+        this.showCopySuccess = true
+        setTimeout(() => (this.showCopySuccess = false), 3000)
+      })
     }
   }
 }
@@ -69,5 +86,42 @@ export default {
   border-left: 2px solid var(--clr-primary);
   padding: 2rem;
   background-color: var(--clr-accent);
+}
+
+.copy_btn {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.5rem;
+  margin-top: 0.5rem;
+  margin-left: auto;
+  background-color: var(--clr-base);
+  color: var(--clr-primary);
+  border: 1px solid;
+  border-radius: var(--border-radius);
+  font-size: var(--fs-300);
+
+  &:hover {
+    background-color: var(--clr-accent);
+  }
+
+  // COPIED SUCCESS MESSAGE
+  &::before {
+    content: 'copied!';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+  }
+
+  &.success::before {
+    animation: 200ms slide ease forwards;
+
+    @keyframes slide {
+      to {
+        transform: translate(calc(-100% - 1rem), -50%);
+      }
+    }
+  }
 }
 </style>
