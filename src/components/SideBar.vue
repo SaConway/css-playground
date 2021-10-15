@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .side_bar {
-  background-color: var(--clr-accent);
+  border-right: 1px solid var(--clr-accent);
   padding: 2rem;
 }
 
@@ -46,7 +46,7 @@ export default {
 
   &.router-link-active {
     cursor: default;
-    color: var(--clr-secondary);
+    font-weight: 600;
     user-select: text;
   }
 }

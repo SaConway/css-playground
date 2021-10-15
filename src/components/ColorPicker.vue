@@ -75,7 +75,8 @@ export default {
   width: fit-content;
   padding: 1rem;
   list-style: none;
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-accent);
+  border: 1px solid;
   border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(4, auto);

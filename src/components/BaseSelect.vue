@@ -62,7 +62,7 @@ export default {
     width: 0.8em;
     height: 0.5em;
     margin-right: 1rem;
-    background-color: var(--clr-secondary);
+    background-color: var(--clr-primary);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     justify-self: flex-end;
   }

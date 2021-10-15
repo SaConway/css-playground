@@ -1,17 +1,17 @@
 <template>
-  <property-layout name="outline" syntax="outline-color outline-style outline-width">
-    <template #property_input>
+  <property-layout name="outline" syntax="outline-color outline-style outline-width" :output="output">
+    <template #input>
       <!-- OUTLINE COLOR -->
-      <color-picker id="outline_color" :value="outlineClr" label="outline-color:" @change="outlineClr = $event" />
+      <color-picker id="outline_color" :value="outlineClr" label="outline-color" @change="outlineClr = $event" />
 
       <!-- OUTLINE STYLE -->
-      <base-select id="outline_style" :options="outlineStyleOpitons" :selected="outlineStyle" label="outline-style:" @change="outlineStyle = $event" />
+      <base-select id="outline_style" :options="outlineStyleOpitons" :selected="outlineStyle" label="outline-style" @change="outlineStyle = $event" />
 
       <!-- OUTLINE WIDTH -->
       <text-input id="outline_width" :value="outlineWidth" label="outline-width" @input="outlineWidth = $event" />
     </template>
 
-    <template #property_output>
+    <template #output>
       <div class="box">I'm a box with an outline</div>
     </template>
   </property-layout>
@@ -33,6 +33,11 @@ export default {
       outlineStyleOpitons: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'],
       outlineStyle: 'dashed',
       outlineWidth: '5px'
+    }
+  },
+  computed: {
+    output() {
+      return `outline: ${this.outlineClr} ${this.outlineStyle} ${this.outlineWidth};`
     }
   }
 }

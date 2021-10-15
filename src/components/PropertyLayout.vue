@@ -1,15 +1,18 @@
 <template>
   <main class="property_layout">
     <!-- TITLE -->
-    <pre class="property_title">{{ title }}</pre>
+    <h1 class="property_title">{{ title }}</h1>
+
+    <!-- OUTPUT CODE -->
+    <pre class="property_output_code">{{ output }}</pre>
 
     <!-- INPUT -->
     <div class="property_input">
-      <slot name="property_input" />
+      <slot name="input" />
     </div>
 
-    <!-- OUTPUT -->
-    <slot name="property_output" />
+    <!-- VISUAL OUTPUT -->
+    <slot name="output" />
   </main>
 </template>
 
@@ -22,6 +25,10 @@ export default {
       required: true
     },
     syntax: {
+      type: String,
+      required: true
+    },
+    output: {
       type: String,
       required: true
     }
@@ -52,6 +59,13 @@ export default {
 }
 
 .property_title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.property_output_code {
   border-left: 2px solid var(--clr-primary);
   padding: 2rem;
   background-color: var(--clr-accent);

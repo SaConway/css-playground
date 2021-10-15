@@ -1,6 +1,6 @@
 <template>
-  <property-layout name="aspect-ratio" syntax="width / height">
-    <template #property_input>
+  <property-layout name="aspect-ratio" syntax="width / height" :output="output">
+    <template #input>
       <!-- WIDTH -->
       <text-input id="width" value="1" label="width:" @input="imgWidth = $event" />
 
@@ -8,7 +8,7 @@
       <text-input id="height" value="1" label="height:" @input="imgHeight = $event" />
     </template>
 
-    <template #property_output>
+    <template #output>
       <img class="image" src="https://source.unsplash.com/random" />
     </template>
   </property-layout>
@@ -25,6 +25,11 @@ export default {
     return {
       imgWidth: '1',
       imgHeight: '1'
+    }
+  },
+  computed: {
+    output() {
+      return `aspect-ratio: ${this.imgWidth} / ${this.imgHeight};`
     }
   }
 }
