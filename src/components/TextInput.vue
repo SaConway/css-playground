@@ -24,6 +24,7 @@ export default {
       required: true
     }
   },
+  emits: ['input'],
   methods: {
     onInput(e) {
       this.$emit('input', e.target.value)

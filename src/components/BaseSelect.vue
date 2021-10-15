@@ -32,6 +32,7 @@ export default {
       required: true
     }
   },
+  emits: ['change'],
   methods: {
     onChange(e) {
       this.$emit('change', e.target.value)
