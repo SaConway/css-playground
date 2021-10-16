@@ -19,6 +19,7 @@
 </template>
 
 <script>
+// UTILS
 import Colors from '@/utils/colors'
 
 export default {

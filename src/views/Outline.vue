@@ -1,5 +1,5 @@
 <template>
-  <property-layout :name="property.name" syntax="outline-color outline-style outline-width" :value="value">
+  <property-layout :name="property.name" :syntax="property.syntax" :value="value">
     <template #input>
       <!-- OUTLINE COLOR -->
       <color-picker id="outline_color" :value="outlineClr" label="outline-color" @change="outlineClr = $event" />
@@ -18,12 +18,15 @@
 </template>
 
 <script>
+// UTILS
 import Properties from '@/utils/properties'
 import Colors from '@/utils/colors'
-import PropertyLayout from '@/components/PropertyLayout.vue'
-import BaseInput from '@/components/BaseInput.vue'
-import BaseSelect from '@/components/BaseSelect.vue'
-import ColorPicker from '@/components/ColorPicker.vue'
+
+// COMPONENT
+import PropertyLayout from '@/components/PropertyLayout'
+import BaseInput from '@/components/BaseInput'
+import BaseSelect from '@/components/BaseSelect'
+import ColorPicker from '@/components/ColorPicker'
 
 export default {
   name: Properties.OUTLINE.componentName,

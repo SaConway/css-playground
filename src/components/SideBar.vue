@@ -11,6 +11,7 @@
 </template>
 
 <script>
+// UTILS
 import Properties from '@/utils/properties'
 
 export default {

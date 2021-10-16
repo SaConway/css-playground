@@ -1,5 +1,5 @@
 <template>
-  <property-layout :name="property.name" syntax="width / height" :value="value">
+  <property-layout :name="property.name" :syntax="property.syntax" :value="value">
     <template #input>
       <!-- WIDTH -->
       <base-input id="width" type="number" value="1" label="width:" @input="imgWidth = $event" />
@@ -15,9 +15,12 @@
 </template>
 
 <script>
+// UTILS
 import Properties from '@/utils/properties'
-import PropertyLayout from '@/components/PropertyLayout.vue'
-import BaseInput from '@/components/BaseInput.vue'
+
+// COMPONENTS
+import PropertyLayout from '@/components/PropertyLayout'
+import BaseInput from '@/components/BaseInput'
 
 export default {
   name: Properties.ASPECT_RATIO.componentName,
