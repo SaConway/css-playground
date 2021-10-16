@@ -1,5 +1,5 @@
 <template>
-  <property-layout :name="key" syntax="outline-color outline-style outline-width" :declaration="declaration">
+  <property-layout :name="property.name" syntax="outline-color outline-style outline-width" :value="value">
     <template #input>
       <!-- OUTLINE COLOR -->
       <color-picker id="outline_color" :value="outlineClr" label="outline-color" @change="outlineClr = $event" />
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import Properties from '@/utils/properties'
 import Colors from '@/utils/colors'
 import PropertyLayout from '@/components/PropertyLayout.vue'
 import BaseInput from '@/components/BaseInput.vue'
@@ -25,10 +26,11 @@ import BaseSelect from '@/components/BaseSelect.vue'
 import ColorPicker from '@/components/ColorPicker.vue'
 
 export default {
-  name: 'AspectRatio',
+  name: Properties.OUTLINE.componentName,
   components: { PropertyLayout, BaseInput, BaseSelect, ColorPicker },
   data() {
     return {
+      property: Properties.OUTLINE,
       outlineClr: Colors.RED.value,
       outlineStyleOpitons: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset'],
       outlineStyle: 'dashed',
@@ -36,12 +38,6 @@ export default {
     }
   },
   computed: {
-    declaration() {
-      return `${this.key}: ${this.value};`
-    },
-    key() {
-      return 'outline'
-    },
     value() {
       return `${this.outlineClr} ${this.outlineStyle} ${this.outlineWidth}px`
     }

@@ -5,7 +5,7 @@ const routes = Object.values(Properties).map(property => {
   return {
     path: `/${property.path}`,
     name: property.name,
-    component: property.component
+    component: () => import(`@/views/${property.componentName}.vue`)
   }
 })
 

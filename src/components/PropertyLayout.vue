@@ -28,11 +28,11 @@ export default {
       type: String,
       required: true
     },
-    syntax: {
+    value: {
       type: String,
       required: true
     },
-    declaration: {
+    syntax: {
       type: String,
       required: true
     }
@@ -45,6 +45,9 @@ export default {
   computed: {
     title() {
       return `${this.name}: ${this.syntax};`
+    },
+    declaration() {
+      return `${this.name}: ${this.value};`
     }
   },
   methods: {
