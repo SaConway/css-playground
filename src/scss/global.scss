@@ -53,6 +53,11 @@ button {
   outline-offset: 3px;
 }
 
+::selection {
+  background-color: var(--clr-primary);
+  color: var(--clr-base);
+}
+
 .horizontal_flow > * + * {
   margin-left: 1rem;
 }
