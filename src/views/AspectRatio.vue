@@ -2,10 +2,10 @@
   <property-layout name="aspect-ratio" syntax="width / height" :output="output">
     <template #input>
       <!-- WIDTH -->
-      <text-input id="width" value="1" label="width:" @input="imgWidth = $event" />
+      <base-input id="width" value="1" label="width:" @input="imgWidth = $event" />
 
       <!-- HEIGHT -->
-      <text-input id="height" value="1" label="height:" @input="imgHeight = $event" />
+      <base-input id="height" value="1" label="height:" @input="imgHeight = $event" />
     </template>
 
     <template #output>
@@ -16,11 +16,11 @@
 
 <script>
 import PropertyLayout from '@/components/PropertyLayout.vue'
-import TextInput from '@/components/TextInput.vue'
+import BaseInput from '@/components/BaseInput.vue'
 
 export default {
   name: 'AspectRatio',
-  components: { PropertyLayout, TextInput },
+  components: { PropertyLayout, BaseInput },
   data() {
     return {
       imgWidth: '1',
