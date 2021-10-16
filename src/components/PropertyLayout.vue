@@ -5,7 +5,7 @@
 
     <!-- OUTPUT CODE -->
     <div>
-      <pre class="property_output_code">{{ output }}</pre>
+      <pre class="property_output_code">{{ declaration }}</pre>
 
       <button :class="['copy_btn', { success: showCopySuccess }]" @click="copyToClipboard">Copy to clipboard</button>
     </div>
@@ -32,7 +32,7 @@ export default {
       type: String,
       required: true
     },
-    output: {
+    declaration: {
       type: String,
       required: true
     }

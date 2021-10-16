@@ -1,11 +1,11 @@
 <template>
-  <property-layout name="aspect-ratio" syntax="width / height" :output="output">
+  <property-layout :name="key" syntax="width / height" :declaration="declaration">
     <template #input>
       <!-- WIDTH -->
-      <base-input id="width" value="1" label="width:" @input="imgWidth = $event" />
+      <base-input id="width" type="number" value="1" label="width:" @input="imgWidth = $event" />
 
       <!-- HEIGHT -->
-      <base-input id="height" value="1" label="height:" @input="imgHeight = $event" />
+      <base-input id="height" type="number" value="1" label="height:" @input="imgHeight = $event" />
     </template>
 
     <template #output>
@@ -28,8 +28,14 @@ export default {
     }
   },
   computed: {
-    output() {
-      return `aspect-ratio: ${this.imgWidth} / ${this.imgHeight};`
+    declaration() {
+      return `${this.key}: ${this.value};`
+    },
+    key() {
+      return 'aspect-ratio'
+    },
+    value() {
+      return `${this.imgWidth} / ${this.imgHeight}`
     }
   }
 }
@@ -38,7 +44,7 @@ export default {
 <style lang="scss" scoped>
 .image {
   width: calc(min(300px, 100%));
-  aspect-ratio: calc(v-bind(imgWidth) / v-bind(imgHeight));
+  aspect-ratio: v-bind(value);
   object-fit: cover;
   transition: aspect-ratio var(--transition-duration) var(--transition-timing-function);
   border-radius: var(--border-radius);

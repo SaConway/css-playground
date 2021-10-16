@@ -3,13 +3,21 @@
   <label :for="id">{{ label }}</label>
 
   <!-- INPUT -->
-  <input class="input" :id="id" :value="value" @input="onInput" />
+  <input class="input" :id="id" :type="type" :value="value" @input="onInput" autocomplete="off" />
 </template>
 
 <script>
 export default {
   name: 'BaseInput',
   props: {
+    type: {
+      type: String,
+      required: false,
+      default: 'text',
+      validator: value => {
+        return ['text', 'number'].includes(value)
+      }
+    },
     id: {
       type: String,
       required: true
