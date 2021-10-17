@@ -1,25 +1,17 @@
 <template>
-  <property-layout :property="property" @change="value = $event">
-    <template #output>
-      <div class="box">I'm a box with an outline</div>
-    </template>
-  </property-layout>
+  <div class="box">I'm a box with an outline</div>
 </template>
 
 <script>
 // UTILS
 import Properties from '@/utils/properties'
 
-// COMPONENT
-import PropertyLayout from '@/components/PropertyLayout'
-
 export default {
   name: Properties.OUTLINE.componentName,
-  components: { PropertyLayout },
-  data() {
-    return {
-      property: Properties.OUTLINE,
-      value: Properties.OUTLINE.initialValue
+  props: {
+    value: {
+      type: String,
+      default: ''
     }
   }
 }

@@ -1,25 +1,17 @@
 <template>
-  <property-layout :property="property" @change="value = $event">
-    <template #output>
-      <img class="image" src="https://source.unsplash.com/random" />
-    </template>
-  </property-layout>
+  <img class="image" src="https://source.unsplash.com/random" />
 </template>
 
 <script>
 // UTILS
 import Properties from '@/utils/properties'
 
-// COMPONENTS
-import PropertyLayout from '@/components/PropertyLayout'
-
 export default {
   name: Properties.ASPECT_RATIO.componentName,
-  components: { PropertyLayout },
-  data() {
-    return {
-      property: Properties.ASPECT_RATIO,
-      value: Properties.ASPECT_RATIO.initialValue
+  props: {
+    value: {
+      type: String,
+      default: ''
     }
   }
 }

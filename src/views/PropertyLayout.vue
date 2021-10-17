@@ -25,11 +25,14 @@
     </div>
 
     <!-- VISUAL OUTPUT -->
-    <slot name="output" />
+    <component :is="currentPropertyComponent" :value="value" />
   </main>
 </template>
 
 <script>
+// HELPERS
+import { defineAsyncComponent } from 'vue'
+
 // COMPONENTS
 import BaseInput from '@/components/BaseInput'
 import BaseSelect from '@/components/BaseSelect'
@@ -42,13 +45,6 @@ export default {
     BaseSelect,
     ColorPicker
   },
-  props: {
-    property: {
-      type: Object,
-      required: true
-    }
-  },
-  emits: ['change'],
   data() {
     return {
       showCopySuccess: false,
@@ -64,6 +60,13 @@ export default {
     },
     value() {
       return this.property.method(this.values)
+    },
+    property() {
+      return this.$attrs.property
+    },
+    currentPropertyComponent() {
+      const name = this.property.componentName
+      return defineAsyncComponent(() => import(`@/components/${name}`))
     }
   },
   methods: {
@@ -75,13 +78,20 @@ export default {
     },
     onInput(inputData, value) {
       this.values[inputData.id] = value
-      this.$emit('change', this.value)
+    },
+    setValues() {
+      this.property.inputs.forEach(input => {
+        this.values[input.id] = input.value
+      })
     }
   },
-  created() {
-    this.property.inputs.forEach(input => {
-      this.values[input.id] = input.value
-    })
+  mounted() {
+    this.setValues()
+  },
+  watch: {
+    property() {
+      this.setValues()
+    }
   }
 }
 </script>
