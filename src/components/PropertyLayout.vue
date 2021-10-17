@@ -12,7 +12,16 @@
 
     <!-- INPUT -->
     <div class="property_input">
-      <slot name="input" />
+      <template v-for="input in property.inputs" :key="input.id">
+        <!-- NUMBER INPUT -->
+        <base-input v-if="input.type === 'number'" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input, $event)" />
+
+        <!-- SELECT INPUT -->
+        <base-select v-if="input.type === 'select'" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input, $event)" />
+
+        <!-- COLOR INPUT -->
+        <color-picker v-if="input.type === 'color'" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input, $event)" />
+      </template>
     </div>
 
     <!-- VISUAL OUTPUT -->
@@ -21,33 +30,40 @@
 </template>
 
 <script>
+// COMPONENTS
+import BaseInput from '@/components/BaseInput'
+import BaseSelect from '@/components/BaseSelect'
+import ColorPicker from '@/components/ColorPicker'
+
 export default {
   name: 'PropertyLayout',
+  components: {
+    BaseInput,
+    BaseSelect,
+    ColorPicker
+  },
   props: {
-    name: {
-      type: String,
-      required: true
-    },
-    value: {
-      type: String,
-      required: true
-    },
-    syntax: {
-      type: String,
+    property: {
+      type: Object,
       required: true
     }
   },
+  emits: ['change'],
   data() {
     return {
-      showCopySuccess: false
+      showCopySuccess: false,
+      values: {}
     }
   },
   computed: {
     title() {
-      return `${this.name}: ${this.syntax};`
+      return `${this.property.name}: ${this.property.syntax};`
     },
     declaration() {
-      return `${this.name}: ${this.value};`
+      return `${this.property.name}: ${this.value};`
+    },
+    value() {
+      return this.property.method(this.values)
     }
   },
   methods: {
@@ -56,7 +72,16 @@ export default {
         this.showCopySuccess = true
         setTimeout(() => (this.showCopySuccess = false), 3000)
       })
+    },
+    onInput(inputData, value) {
+      this.values[inputData.id] = value
+      this.$emit('change', this.value)
     }
+  },
+  created() {
+    this.property.inputs.forEach(input => {
+      this.values[input.id] = input.value
+    })
   }
 }
 </script>

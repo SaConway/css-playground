@@ -1,13 +1,5 @@
 <template>
-  <property-layout :name="property.name" :syntax="property.syntax" :value="value">
-    <template #input>
-      <!-- WIDTH -->
-      <base-input id="width" type="number" value="1" label="width:" @input="imgWidth = $event" />
-
-      <!-- HEIGHT -->
-      <base-input id="height" type="number" value="1" label="height:" @input="imgHeight = $event" />
-    </template>
-
+  <property-layout :property="property" @change="value = $event">
     <template #output>
       <img class="image" src="https://source.unsplash.com/random" />
     </template>
@@ -20,21 +12,14 @@ import Properties from '@/utils/properties'
 
 // COMPONENTS
 import PropertyLayout from '@/components/PropertyLayout'
-import BaseInput from '@/components/BaseInput'
 
 export default {
   name: Properties.ASPECT_RATIO.componentName,
-  components: { PropertyLayout, BaseInput },
+  components: { PropertyLayout },
   data() {
     return {
       property: Properties.ASPECT_RATIO,
-      imgWidth: '1',
-      imgHeight: '1'
-    }
-  },
-  computed: {
-    value() {
-      return `${this.imgWidth} / ${this.imgHeight}`
+      value: Properties.ASPECT_RATIO.initialValue
     }
   }
 }
