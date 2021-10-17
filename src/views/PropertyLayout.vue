@@ -52,52 +52,53 @@ export default {
     }
   },
   computed: {
+    property() {
+      return this.$attrs.property
+    },
+    value() {
+      return this.property.method(this.values)
+    },
     title() {
       return `${this.property.name}: ${this.property.syntax};`
     },
     declaration() {
       return `${this.property.name}: ${this.value};`
     },
-    value() {
-      return this.property.method(this.values)
-    },
-    property() {
-      return this.$attrs.property
-    },
     currentPropertyComponent() {
       const name = this.property.componentName
       return defineAsyncComponent(() => import(`@/components/${name}`))
     }
   },
+  watch: {
+    property() {
+      this.setValues()
+    }
+  },
   methods: {
-    copyToClipboard() {
-      navigator.clipboard.writeText(this.output).then(() => {
-        this.showCopySuccess = true
-        setTimeout(() => (this.showCopySuccess = false), 3000)
+    setValues() {
+      this.property.inputs.forEach(input => {
+        this.values[input.id] = input.value
       })
     },
     onInput(inputData, value) {
       this.values[inputData.id] = value
     },
-    setValues() {
-      this.property.inputs.forEach(input => {
-        this.values[input.id] = input.value
+    copyToClipboard() {
+      navigator.clipboard.writeText(this.output).then(() => {
+        this.showCopySuccess = true
+        setTimeout(() => (this.showCopySuccess = false), 3000)
       })
     }
   },
   mounted() {
     this.setValues()
-  },
-  watch: {
-    property() {
-      this.setValues()
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .property_layout {
+  width: 100%;
   max-width: 60rem;
   height: fit-content;
   margin: 0 auto;
