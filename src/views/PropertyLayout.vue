@@ -3,13 +3,6 @@
     <!-- TITLE -->
     <h1 class="property_title">{{ title }}</h1>
 
-    <!-- OUTPUT CODE -->
-    <div>
-      <pre class="property_output_code">{{ declaration }}</pre>
-
-      <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy to clipboard</button>
-    </div>
-
     <!-- INPUT -->
     <div class="property_input">
       <template v-for="input in property.inputs" :key="input.id">
@@ -22,6 +15,13 @@
         <!-- COLOR INPUT -->
         <color-picker v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input.id, $event)" />
       </template>
+    </div>
+
+    <!-- OUTPUT CODE -->
+    <div>
+      <pre class="property_output_code">{{ declaration }}</pre>
+
+      <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy to clipboard</button>
     </div>
 
     <!-- VISUAL OUTPUT -->
@@ -105,6 +105,7 @@ export default {
 .property_layout {
   width: 100%;
   max-width: 60rem;
+  height: fit-content;
   margin: 0 auto;
   display: grid;
   gap: 6rem;
@@ -122,6 +123,7 @@ export default {
   font-size: 1.9rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+  line-height: 1;
 }
 
 .property_output_code {

@@ -3,7 +3,7 @@
   <label :for="id">{{ label }}</label>
 
   <!-- INPUT -->
-  <input class="input" :id="id" :type="type" :value="value" @input="onInput" autocomplete="off" />
+  <input class="input" :id="id" :type="type" :value="value" min="0" @input="onInput" autocomplete="off" />
 </template>
 
 <script>
