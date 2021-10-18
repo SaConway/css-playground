@@ -29,19 +29,20 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: var(--border-radius);
 }
 
 label {
-  color: var(--clr-primary);
   font-size: var(--fs-300);
 }
 
 button {
-  border: none;
-  font-family: inherit;
   cursor: pointer;
-  background-color: transparent;
+  font-family: inherit;
   line-height: 1;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--border-radius);
 }
 
 :focus {
@@ -50,16 +51,12 @@ button {
 
 :focus-visible {
   outline: 1px solid var(--clr-primary);
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 ::selection {
   background-color: var(--clr-primary);
   color: var(--clr-base);
-}
-
-.horizontal_flow > * + * {
-  margin-left: 1rem;
 }
 
 .input {
@@ -70,6 +67,6 @@ button {
   border: 1px solid var(--clr-accent);
   border-radius: var(--border-radius);
   text-align: center;
-  font-size: 1.4rem;
+  font-size: var(--fs-300);
   font-family: inherit;
 }

@@ -141,7 +141,6 @@ export default {
   background-color: var(--clr-base);
   color: var(--clr-primary);
   border: 1px solid;
-  border-radius: var(--border-radius);
   font-size: var(--fs-300);
 
   &:hover {

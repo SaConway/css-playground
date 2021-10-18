@@ -23,6 +23,5 @@ export default {
   aspect-ratio: v-bind(value);
   object-fit: cover;
   transition: aspect-ratio var(--transition-duration) var(--transition-timing-function);
-  border-radius: var(--border-radius);
 }
 </style>
