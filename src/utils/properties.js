@@ -1,4 +1,5 @@
 // UTILS
+import Enums from '@/utils/enums'
 import Colors from '@/utils/colors'
 
 export default {
@@ -11,13 +12,13 @@ export default {
     inputs: [
       {
         id: 'width',
-        type: 'number',
+        type: Enums.INPUT_TYPES.NUMBER,
         value: '1',
         label: 'width'
       },
       {
         id: 'height',
-        type: 'number',
+        type: Enums.INPUT_TYPES.NUMBER,
         value: '1',
         label: 'height'
       }
@@ -35,20 +36,20 @@ export default {
     inputs: [
       {
         id: 'outline_color',
-        type: 'color',
+        type: Enums.INPUT_TYPES.COLOR,
         value: Colors.RED.value,
         label: 'outline-color'
       },
       {
         id: 'outline_style',
-        type: 'select',
+        type: Enums.INPUT_TYPES.SELECT,
         value: 'dashed',
         label: 'outline-style',
         options: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']
       },
       {
         id: 'outline_width',
-        type: 'number',
+        type: Enums.INPUT_TYPES.NUMBER,
         value: '5',
         label: 'outline-width'
       }

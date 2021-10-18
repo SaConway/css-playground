@@ -7,20 +7,20 @@
     <div>
       <pre class="property_output_code">{{ declaration }}</pre>
 
-      <button :class="['copy_btn', { success: showCopySuccess }]" @click="copyToClipboard">Copy to clipboard</button>
+      <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy to clipboard</button>
     </div>
 
     <!-- INPUT -->
     <div class="property_input">
       <template v-for="input in property.inputs" :key="input.id">
         <!-- NUMBER INPUT -->
-        <base-input v-if="input.type === 'number'" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input, $event)" />
+        <base-input v-if="input.type === Enums.INPUT_TYPES.NUMBER" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input, $event)" />
 
         <!-- SELECT INPUT -->
-        <base-select v-if="input.type === 'select'" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input, $event)" />
+        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input, $event)" />
 
         <!-- COLOR INPUT -->
-        <color-picker v-if="input.type === 'color'" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input, $event)" />
+        <color-picker v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input, $event)" />
       </template>
     </div>
 
@@ -32,6 +32,9 @@
 <script>
 // HELPERS
 import { defineAsyncComponent } from 'vue'
+
+// UTILS
+import Enums from '@/utils/enums'
 
 // COMPONENTS
 import BaseInput from '@/components/BaseInput'
@@ -47,6 +50,7 @@ export default {
   },
   data() {
     return {
+      Enums,
       showCopySuccess: false,
       values: {}
     }
@@ -72,6 +76,7 @@ export default {
   watch: {
     property() {
       this.setValues()
+      this.showCopySuccess = false
     }
   },
   methods: {
