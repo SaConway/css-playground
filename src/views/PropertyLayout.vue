@@ -1,7 +1,9 @@
 <template>
   <main class="property_layout">
     <!-- TITLE -->
-    <h1 class="property_title">{{ title }}</h1>
+    <h1 class="property_title">
+      <b>{{ property.name }}: </b>{{ property.syntax }};
+    </h1>
 
     <!-- INPUT -->
     <div class="property_input">
@@ -120,10 +122,9 @@ export default {
 }
 
 .property_title {
-  font-size: 1.9rem;
-  font-weight: 600;
+  font-size: var(--fs-500);
+  font-weight: 400;
   letter-spacing: 0.5px;
-  line-height: 1;
 }
 
 .property_output_code {

@@ -49,6 +49,8 @@ export default {
     cursor: default;
     font-weight: 600;
     user-select: text;
+    text-decoration: var(--clr-accent) wavy underline;
+    text-underline-offset: 2px;
   }
 }
 </style>
