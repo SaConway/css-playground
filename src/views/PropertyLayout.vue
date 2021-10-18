@@ -70,7 +70,7 @@ export default {
     },
     currentPropertyComponent() {
       const name = this.property.componentName
-      return defineAsyncComponent(() => import(`@/components/${name}`))
+      return defineAsyncComponent(() => import(`@/components/properties/${name}`))
     }
   },
   watch: {
