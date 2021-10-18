@@ -14,13 +14,13 @@
     <div class="property_input">
       <template v-for="input in property.inputs" :key="input.id">
         <!-- NUMBER INPUT -->
-        <base-input v-if="input.type === Enums.INPUT_TYPES.NUMBER" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input, $event)" />
+        <base-input v-if="input.type === Enums.INPUT_TYPES.NUMBER" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input.id, $event)" />
 
         <!-- SELECT INPUT -->
-        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input, $event)" />
+        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input.id, $event)" />
 
         <!-- COLOR INPUT -->
-        <color-picker v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input, $event)" />
+        <color-picker v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input.id, $event)" />
       </template>
     </div>
 
@@ -85,8 +85,8 @@ export default {
         this.values[input.id] = input.value
       })
     },
-    onInput(inputData, value) {
-      this.values[inputData.id] = value
+    onInput(inputId, value) {
+      this.values[inputId] = value
     },
     copyToClipboard() {
       navigator.clipboard.writeText(this.output).then(() => {
@@ -105,7 +105,6 @@ export default {
 .property_layout {
   width: 100%;
   max-width: 60rem;
-  height: fit-content;
   margin: 0 auto;
   display: grid;
   gap: 6rem;
@@ -122,8 +121,7 @@ export default {
 .property_title {
   font-size: 1.9rem;
   font-weight: 600;
-  font-family: sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .property_output_code {
