@@ -4,7 +4,7 @@ import PropertyLayout from '@/views/PropertyLayout'
 
 const routes = Object.values(Properties).map(property => {
   return {
-    path: `/${property.path}`,
+    path: `/${property.name}`,
     name: property.name,
     component: PropertyLayout,
     props: { property }

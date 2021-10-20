@@ -5,10 +5,8 @@ import Colors from '@/utils/colors'
 export default {
   ASPECT_RATIO: {
     name: 'aspect-ratio',
-    path: 'aspect-ratio',
     componentName: 'AspectRatio',
     syntax: 'width / height',
-    initialValue: '1',
     inputs: [
       {
         id: 'width',
@@ -29,71 +27,67 @@ export default {
   },
   OUTLINE: {
     name: 'outline',
-    path: 'outline',
     componentName: 'Outline',
     syntax: 'outline-color outline-style outline-width',
-    initialValue: `${Colors.RED.value} dashed 5px`,
     inputs: [
       {
-        id: 'outline_color',
+        id: 'outline-color',
         type: Enums.INPUT_TYPES.COLOR,
         value: Colors.RED.value,
         label: 'outline-color'
       },
       {
-        id: 'outline_style',
+        id: 'outline-style',
         type: Enums.INPUT_TYPES.SELECT,
         value: 'dashed',
         label: 'outline-style',
         options: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']
       },
       {
-        id: 'outline_width',
+        id: 'outline-width',
         type: Enums.INPUT_TYPES.NUMBER,
         value: '5',
         label: 'outline-width'
       }
     ],
     method: values => {
-      return `${values['outline_color']} ${values['outline_style']} ${values['outline_width']}px`
+      return `${values['outline-color']} ${values['outline-style']} ${values['outline-width']}px`
     }
   },
   TEXT_DECORATION: {
     name: 'text-decoration',
-    path: 'text-decoration',
     componentName: 'TextDecoration',
     syntax: 'text-decoration-line text-decoration-style text-decoration-color text-decoration-thickness',
-    initialValue: `underline wavy ${Colors.AMBER.value} 5px`,
     inputs: [
       {
-        id: 'text_decoration_line',
+        id: 'text-decoration-line',
         type: Enums.INPUT_TYPES.SELECT,
         value: 'underline',
         label: 'text-decoration-line',
         options: ['underline', 'overline', 'line-through']
       },
       {
-        id: 'text_decoration_style',
+        id: 'text-decoration-style',
         type: Enums.INPUT_TYPES.SELECT,
         value: 'wavy',
         label: 'text-decoration-style',
         options: ['solid', 'double', 'dotted', 'dashed', 'wavy']
       },
       {
-        id: 'text_decoration_color',
+        id: 'text-decoration-color',
         type: Enums.INPUT_TYPES.COLOR,
         value: Colors.AMBER.value,
         label: 'text-decoration-color'
       },
       {
-        id: 'text_decoration_thickness',
+        id: 'text-decoration-thickness',
         type: Enums.INPUT_TYPES.NUMBER,
         value: '5',
         label: 'text-decoration-thickness'
       }
     ],
     method: values => {
-      return `${values['text_decoration_line']} ${values['text_decoration_style']} ${values['text_decoration_color']} ${values['text_decoration_thickness']}px`
+      return `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${values['text-decoration-thickness']}px`
     }
   }
 }
