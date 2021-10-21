@@ -50,7 +50,7 @@ button {
 }
 
 :focus-visible {
-  outline: 1px solid var(--clr-primary);
+  outline: 1px solid var(--clr-primary) !important;
   outline-offset: 2px;
 }
 

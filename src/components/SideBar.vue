@@ -3,7 +3,7 @@
     <nav>
       <ul class="nav_list">
         <li v-for="property in Properties" :key="property.name">
-          <router-link class="link" :to="property.name">{{ property.name }}</router-link>
+          <router-link disabled="true" class="link" :to="property.name">{{ property.name }}</router-link>
         </li>
       </ul>
     </nav>
