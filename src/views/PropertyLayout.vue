@@ -106,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 .property_layout {
   width: 100%;
-  max-width: 60rem;
+  max-width: 75rem;
   height: fit-content;
   margin: 0 auto;
   display: grid;
@@ -118,13 +118,12 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   align-items: center;
-  gap: 2rem 1rem;
+  gap: 2rem;
 }
 
 .property_title {
   font-size: var(--fs-500);
   font-weight: 400;
-  letter-spacing: 0.5px;
 }
 
 .property_output_code {

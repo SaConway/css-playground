@@ -1,0 +1,8 @@
+@mixin hover {
+  outline: 1px solid transparent;
+  transition: outline-color var(--transition-duration) var(--transition-timing-function);
+
+  &:hover {
+    outline-color: currentColor;
+  }
+}

@@ -82,7 +82,7 @@ export default {
       {
         id: 'text-decoration-thickness',
         type: Enums.INPUT_TYPES.NUMBER,
-        value: '5',
+        value: '3',
         label: 'text-decoration-thickness'
       }
     ],

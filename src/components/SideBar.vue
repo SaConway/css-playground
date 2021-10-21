@@ -41,8 +41,8 @@ export default {
   padding: 1rem;
   display: block;
 
-  &:hover:not(.router-link-active) {
-    outline: 1px solid;
+  &:not(.router-link-active) {
+    @include hover;
   }
 
   &.router-link-active {

@@ -69,4 +69,5 @@ button {
   text-align: center;
   font-size: var(--fs-300);
   font-family: inherit;
+  @include hover;
 }
