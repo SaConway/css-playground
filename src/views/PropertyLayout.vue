@@ -1,9 +1,10 @@
 <template>
   <main v-if="property" class="property_layout">
-    <!-- TITLE -->
-    <h1 class="property_title">
-      <b>{{ property.name }}: </b>{{ property.syntax }};
-    </h1>
+    <header>
+      <!-- TITLE -->
+      <h1 class="property_title">{{ property.name }}</h1>
+      <!-- <p>{{ property.syntax }};</p> -->
+    </header>
 
     <!-- INPUT -->
     <div class="property_input">
@@ -129,12 +130,18 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .property_title {
   font-size: var(--fs-500);
-  font-weight: 400;
+  text-decoration: var(--clr-accent) wavy underline;
+  text-underline-offset: 2px;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: var(--fs-300);
 }
 
 .property_output_code {

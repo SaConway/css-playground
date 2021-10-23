@@ -2,7 +2,7 @@
   <aside class="side_bar">
     <nav>
       <ul class="nav_list">
-        <li v-for="property in Enums.PROPERTIES" :key="property">
+        <li v-for="property in properties" :key="property">
           <router-link class="link" disabled="true" :to="property">{{ property }}</router-link>
         </li>
       </ul>
@@ -18,7 +18,7 @@ export default {
   name: 'SideBar',
   data() {
     return {
-      Enums
+      properties: Enums.PROPERTIES
     }
   }
 }
@@ -40,6 +40,7 @@ export default {
   text-decoration: none;
   padding: 1rem;
   display: block;
+  font-size: var(--fs-400);
 
   &:not(.router-link-active) {
     @include hover;
