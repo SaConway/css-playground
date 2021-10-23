@@ -4,12 +4,12 @@
 
   <div class="picker_layout">
     <!-- PICKER BUTTON -->
-    <input class="input" :id="id" type="button" :value="value" @click="openPicker" />
+    <input class="input" :id="id" type="button" :style="{ '--bg-clr': selectedColor }" @click="openPicker" />
 
     <!-- PICKER COLORS -->
     <ul v-show="showPicker" class="picker">
       <li class="color_item" v-for="color in colors" :key="color.name">
-        <button class="color_btn" :style="{ '--clr': color.value }" @click="colorPicked(color.value)" />
+        <button :class="['color_btn', color.value === selectedColor ? 'active' : '']" :style="{ '--clr': color.value }" @click="colorPicked(color.value)" />
       </li>
     </ul>
   </div>
@@ -42,7 +42,13 @@ export default {
   data() {
     return {
       colors: Colors,
+      selectedColor: null,
       showPicker: false
+    }
+  },
+  watch: {
+    value() {
+      this.selectedColor = this.value
     }
   },
   methods: {
@@ -53,9 +59,13 @@ export default {
       this.showPicker = false
     },
     colorPicked(color) {
+      this.selectedColor = color
       this.closePicker()
       this.$emit('change', color)
     }
+  },
+  created() {
+    this.selectedColor = this.value
   }
 }
 </script>
@@ -67,23 +77,25 @@ export default {
 
 .input {
   width: 100%;
+  background-color: var(--bg-clr);
 }
 
 .picker {
   position: absolute;
-  bottom: calc(100% + 1rem);
-  left: 0;
+  top: 0.5rem;
+  left: 0.5rem;
   width: fit-content;
   padding: 1rem;
   list-style: none;
   background-color: var(--clr-accent);
-  border: 1px solid;
   border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(4, auto);
   justify-content: start;
   gap: 0.5rem;
   z-index: 2;
+  transform-origin: top left;
+  animation: grow var(--transition-duration) var(--transition-timing-function);
 }
 
 .color_item {
@@ -97,6 +109,19 @@ export default {
   background-color: var(--clr);
   border: none;
   border-radius: var(--border-radius);
+  position: relative;
+
+  &.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr-base);
+    border-top-right-radius: var(--border-radius);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
 }
 
 .overlay {

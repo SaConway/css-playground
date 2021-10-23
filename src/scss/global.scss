@@ -83,3 +83,13 @@ button {
   font-family: inherit;
   @include hover;
 }
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
