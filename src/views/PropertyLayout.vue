@@ -1,5 +1,5 @@
 <template>
-  <main class="property_layout">
+  <main v-if="property" class="property_layout">
     <!-- TITLE -->
     <h1 class="property_title">
       <b>{{ property.name }}: </b>{{ property.syntax }};
@@ -54,13 +54,11 @@ export default {
     return {
       Enums,
       showCopySuccess: false,
+      property: null,
       values: {}
     }
   },
   computed: {
-    property() {
-      return this.$attrs.property
-    },
     value() {
       return this.property.method(this.values)
     },
@@ -76,16 +74,29 @@ export default {
     }
   },
   watch: {
-    property() {
-      this.setValues()
-      this.showCopySuccess = false
+    $route() {
+      this.init()
     }
   },
   methods: {
-    setValues() {
+    async init() {
+      this.property = await this.getProperty()
+      this.values = this.getValues()
+      this.showCopySuccess = false
+    },
+    async getProperty() {
+      const name = this.$route.name
+      const propertyModule = await import(`@/content/${name}`)
+      return propertyModule.default
+    },
+    getValues() {
+      const values = {}
+
       this.property.inputs.forEach(input => {
-        this.values[input.id] = input.value
+        values[input.id] = input.value
       })
+
+      return values
     },
     onInput(inputId, value) {
       this.values[inputId] = value
@@ -98,7 +109,7 @@ export default {
     }
   },
   mounted() {
-    this.setValues()
+    this.init()
   }
 }
 </script>

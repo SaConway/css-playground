@@ -1,13 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Properties from '@/utils/properties'
+import Enums from '@/utils/enums'
 import PropertyLayout from '@/views/PropertyLayout'
 
-const routes = Object.values(Properties).map(property => {
+const routes = Object.values(Enums.PROPERTIES).map(property => {
   return {
-    path: `/${property.name}`,
-    name: property.name,
-    component: PropertyLayout,
-    props: { property }
+    path: `/${property}`,
+    name: property,
+    component: PropertyLayout
   }
 })
 

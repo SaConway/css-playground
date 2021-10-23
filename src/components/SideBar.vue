@@ -2,8 +2,8 @@
   <aside class="side_bar">
     <nav>
       <ul class="nav_list">
-        <li v-for="property in Properties" :key="property.name">
-          <router-link disabled="true" class="link" :to="property.name">{{ property.name }}</router-link>
+        <li v-for="property in Enums.PROPERTIES" :key="property">
+          <router-link class="link" disabled="true" :to="property">{{ property }}</router-link>
         </li>
       </ul>
     </nav>
@@ -12,13 +12,13 @@
 
 <script>
 // UTILS
-import Properties from '@/utils/properties'
+import Enums from '@/utils/enums'
 
 export default {
   name: 'SideBar',
   data() {
     return {
-      Properties
+      Enums
     }
   }
 }
