@@ -1,5 +1,6 @@
 @mixin hover {
   outline: 1px solid transparent;
+  outline-offset: 2px;
 
   &:hover {
     transition: outline-color var(--transition-duration) var(--transition-timing-function);

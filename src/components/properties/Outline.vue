@@ -3,11 +3,7 @@
 </template>
 
 <script>
-// UTILS
-import Properties from '@/utils/properties'
-
 export default {
-  name: Properties.OUTLINE.componentName,
   props: {
     value: {
       type: String,
