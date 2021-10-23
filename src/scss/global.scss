@@ -59,6 +59,18 @@ button {
   color: var(--clr-base);
 }
 
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-accent);
+}
+
 .input {
   cursor: pointer;
   padding: 2rem 4rem;
