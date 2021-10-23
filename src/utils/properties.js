@@ -89,5 +89,21 @@ export default {
     method: values => {
       return `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${values['text-decoration-thickness']}px`
     }
+  },
+  // TEMPLATE: {
+  //   name: '',
+  //   componentName: '',
+  //   syntax: '',
+  //   inputs: [
+  //     {
+  //       id: '',
+  //       type: Enums.INPUT_TYPES,
+  //       value: '',
+  //       label: ''
+  //     }
+  //   ],
+  //   method: values => {
+  //     return `${values['input_id']}`
+  //   }
   }
 }
