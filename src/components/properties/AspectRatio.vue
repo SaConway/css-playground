@@ -1,5 +1,5 @@
 <template>
-  <img class="image" src="https://source.unsplash.com/random" />
+  <img class="example" src="https://source.unsplash.com/random" />
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image {
+.example {
   width: calc(min(300px, 100%));
   aspect-ratio: v-bind(value);
   object-fit: cover;

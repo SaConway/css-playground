@@ -1,5 +1,5 @@
 <template>
-  <div class="box">I'm a box with an outline</div>
+  <div class="example">I'm a box with an outline</div>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box {
+.example {
   background-color: var(--clr-primary);
   color: var(--clr-base);
   padding: 5rem;

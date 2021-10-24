@@ -1,5 +1,5 @@
 <template>
-  <p class="text">Here's some text with text decoration</p>
+  <p class="example">Here's some text with text decoration</p>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.text {
+.example {
   color: var(--clr-primary);
   font-weight: 600;
   text-decoration: v-bind(value);
