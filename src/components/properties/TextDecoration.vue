@@ -18,6 +18,6 @@ export default {
   color: var(--clr-primary);
   font-weight: 600;
   text-decoration: v-bind(value);
-  transition: text-decoration var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 </style>

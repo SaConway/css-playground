@@ -18,6 +18,6 @@ export default {
   width: calc(min(300px, 100%));
   aspect-ratio: v-bind(value);
   object-fit: cover;
-  transition: aspect-ratio var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 </style>

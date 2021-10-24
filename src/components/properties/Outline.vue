@@ -21,6 +21,6 @@ export default {
   outline: v-bind(value);
   border-radius: var(--border-radius);
   text-align: center;
-  transition: outline var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 </style>

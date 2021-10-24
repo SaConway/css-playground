@@ -20,7 +20,7 @@ export default {
   padding: 5rem;
   border-radius: var(--border-radius);
   text-align: center;
-  transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+  transition: var(--transition-duration) var(--transition-timing-function);
   box-shadow: v-bind(value);
 }
 </style>

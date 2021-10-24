@@ -15,5 +15,6 @@ export default {
 
 <style lang="scss" scoped>
 .example {
+  transition: var(--transition-duration) var(--transition-timing-function);
 }
 </style>
