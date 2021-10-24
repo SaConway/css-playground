@@ -4,7 +4,7 @@
 
   <div class="picker_layout">
     <!-- PICKER BUTTON -->
-    <input class="input" :id="id" type="button" :style="{ '--bg-clr': selectedColor }" @click="openPicker" />
+    <input class="input" :id="id" type="button" :style="{ '--bg-clr': selectedColor }" @click="openPicker" @keyup="handleKeyboard" />
 
     <!-- PICKER COLORS -->
     <ul v-show="showPicker" class="picker">
@@ -62,6 +62,15 @@ export default {
       this.selectedColor = color
       this.closePicker()
       this.$emit('change', color)
+    },
+    handleKeyboard(e) {
+      if (e.keyCode === '40') {
+        this.openPicker()
+      }
+
+      if (e.keyCode === '27') {
+        this.closePicker()
+      }
     }
   },
   created() {
