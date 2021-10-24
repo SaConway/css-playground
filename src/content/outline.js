@@ -18,7 +18,7 @@ export default {
       type: Enums.INPUT_TYPES.SELECT,
       value: 'dashed',
       label: 'outline-style',
-      options: ['dotted', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']
+      options: ['dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']
     },
     {
       id: 'outline-width',

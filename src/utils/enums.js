@@ -6,6 +6,7 @@ export default {
   },
   PROPERTIES: {
     ASPECT_RATIO: 'aspect-ratio',
+    BORDER: 'border',
     BOX_SHADOW: 'box-shadow',
     OUTLINE: 'outline',
     TEXT_DECORATION: 'text-decoration'
