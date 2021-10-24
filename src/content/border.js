@@ -28,6 +28,6 @@ export default {
     }
   ],
   method: values => {
-    return `${values['border-color']} ${values['border-style']} ${values['border-width']}px`
+    return `${values['border-width']}px ${values['border-style']} ${values['border-color']}`
   }
 }
