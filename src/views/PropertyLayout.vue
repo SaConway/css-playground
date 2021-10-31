@@ -1,18 +1,12 @@
 <template>
   <main v-if="property" class="property_layout">
-    <header>
-      <!-- TITLE -->
-      <h1 class="property_title">{{ property.name }}</h1>
-    </header>
+    <!-- TITLE -->
+    <h1 class="property_title">{{ property.name }}</h1>
 
-    <!-- INPUT -->
+    <!-- INPUTS -->
     <div class="property_input">
       <template v-for="input in property.inputs" :key="input.id">
-        <!-- SELECT INPUT -->
-        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="values[input.id]" :label="input.label" @change="onInput(input.id, $event)" />
-
-        <!-- COLOR INPUT -->
-        <base-select v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :options="colors" :selected="values[input.id]" :label="input.label" :type="Enums.INPUT_TYPES.COLOR" @change="onInput(input.id, $event)" />
+        <base-input :id="input.id" :options="input.options || colors" :selected="values[input.id]" :label="input.label" :type="input.type" @change="onInput(input.id, $event)" />
       </template>
     </div>
 
@@ -33,12 +27,12 @@ import Enums from '@/utils/enums'
 import Colors from '@/utils/colors'
 
 // COMPONENTS
-import BaseSelect from '@/components/BaseSelect'
+import BaseInput from '@/components/BaseInput'
 
 export default {
   name: 'PropertyLayout',
   components: {
-    BaseSelect
+    BaseInput
   },
   data() {
     return {
@@ -108,17 +102,26 @@ export default {
 <style lang="scss" scoped>
 .property_layout {
   width: 100%;
-  max-width: 75rem;
+  max-width: 100rem;
   height: fit-content;
   margin: 0 auto;
   display: grid;
   gap: 6rem;
   padding: 3rem;
+  align-items: flex-start;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .property_input {
   display: grid;
-  gap: 4rem;
+  gap: 3rem;
+
+  @media (min-width: 900px) {
+    grid-column: 1;
+  }
 }
 
 .property_title {
@@ -137,6 +140,7 @@ export default {
   color: var(--clr-primary);
   border: 1px solid;
   font-size: var(--fs-300);
+  grid-column: 1 / -1;
 
   &:hover {
     background-color: var(--clr-accent);

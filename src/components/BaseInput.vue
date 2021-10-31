@@ -1,9 +1,9 @@
 <template>
   <fieldset>
     <!-- LABEL -->
-    <legend>{{ label }}</legend>
+    <legend class="label">{{ label }}</legend>
 
-    <!-- SELECT -->
+    <!-- OPTIONS -->
     <div class="options">
       <label :class="['form_control', type, option === selected ? 'selected' : '']" v-for="option in options" :key="option" :style="{ '--value': option }">
         <input class="custom_radio" type="radio" :name="id" @change="onChange(option)" />
@@ -21,7 +21,7 @@
 import Enums from '@/utils/enums'
 
 export default {
-  name: 'BaseSelect',
+  name: 'BaseInput',
   props: {
     id: {
       type: String,
@@ -61,6 +61,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.label {
+  font-size: var(--fs-300);
+}
+
 .options {
   margin-top: 1rem;
   display: flex;
