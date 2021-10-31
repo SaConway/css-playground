@@ -3,32 +3,24 @@
     <header>
       <!-- TITLE -->
       <h1 class="property_title">{{ property.name }}</h1>
-      <!-- <p>{{ property.syntax }};</p> -->
     </header>
 
     <!-- INPUT -->
     <div class="property_input">
       <template v-for="input in property.inputs" :key="input.id">
-        <!-- NUMBER INPUT -->
-        <base-input v-if="input.type === Enums.INPUT_TYPES.NUMBER" :id="input.id" :type="input.type" :value="input.value" :label="input.label" @input="onInput(input.id, $event)" />
-
         <!-- SELECT INPUT -->
-        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="input.value" :label="input.label" @change="onInput(input.id, $event)" />
+        <base-select v-if="input.type === Enums.INPUT_TYPES.SELECT" :id="input.id" :options="input.options" :selected="values[input.id]" :label="input.label" @change="onInput(input.id, $event)" />
 
         <!-- COLOR INPUT -->
-        <color-picker v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :value="input.value" :label="input.label" @change="onInput(input.id, $event)" />
+        <base-select v-if="input.type === Enums.INPUT_TYPES.COLOR" :id="input.id" :options="colors" :selected="values[input.id]" :label="input.label" :type="Enums.INPUT_TYPES.COLOR" @change="onInput(input.id, $event)" />
       </template>
     </div>
 
     <!-- OUTPUT CODE -->
-    <div>
-      <pre class="property_output_code">{{ declaration }}</pre>
-
-      <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy to clipboard</button>
-    </div>
+    <component :is="currentPropertyComponent" :value="value" />
 
     <!-- VISUAL OUTPUT -->
-    <component :is="currentPropertyComponent" :value="value" />
+    <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy Declaration</button>
   </main>
 </template>
 
@@ -38,22 +30,20 @@ import { defineAsyncComponent } from 'vue'
 
 // UTILS
 import Enums from '@/utils/enums'
+import Colors from '@/utils/colors'
 
 // COMPONENTS
-import BaseInput from '@/components/BaseInput'
 import BaseSelect from '@/components/BaseSelect'
-import ColorPicker from '@/components/ColorPicker'
 
 export default {
   name: 'PropertyLayout',
   components: {
-    BaseInput,
-    BaseSelect,
-    ColorPicker
+    BaseSelect
   },
   data() {
     return {
       Enums,
+      colors: Object.values(Colors).map(color => color.value),
       showCopySuccess: false,
       property: null,
       values: {}
@@ -128,26 +118,13 @@ export default {
 
 .property_input {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  align-items: center;
-  gap: 1.5rem;
+  gap: 4rem;
 }
 
 .property_title {
   font-size: var(--fs-500);
   text-decoration: var(--clr-accent) wavy underline;
   text-underline-offset: 2px;
-}
-
-p {
-  margin-top: 1rem;
-  font-size: var(--fs-300);
-}
-
-.property_output_code {
-  border-left: 2px solid var(--clr-primary);
-  padding: 2rem;
-  background-color: var(--clr-accent);
 }
 
 .copy_btn {

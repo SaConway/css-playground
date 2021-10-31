@@ -8,15 +8,17 @@ export default {
   inputs: [
     {
       id: 'width',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '1',
-      label: 'width'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '16',
+      label: 'width',
+      options: ['1', '2', '3', '4', '9', '16']
     },
     {
       id: 'height',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '1',
-      label: 'height'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '9',
+      label: 'height',
+      options: ['1', '2', '3', '4', '9', '16']
     }
   ],
   method: values => {

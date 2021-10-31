@@ -9,9 +9,10 @@ export default {
   inputs: [
     {
       id: 'border-width',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '5',
-      label: 'border-width'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '4',
+      label: 'border-width',
+      options: ['1', '2', '4', '8', '16', '32']
     },
     {
       id: 'border-style',

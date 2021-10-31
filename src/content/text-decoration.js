@@ -29,9 +29,10 @@ export default {
     },
     {
       id: 'text-decoration-thickness',
-      type: Enums.INPUT_TYPES.NUMBER,
+      type: Enums.INPUT_TYPES.SELECT,
       value: '3',
-      label: 'text-decoration-thickness'
+      label: 'text-decoration-thickness',
+      options: ['1', '2', '3', '4', '5', '6']
     }
   ],
   method: values => {

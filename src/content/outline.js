@@ -22,9 +22,10 @@ export default {
     },
     {
       id: 'outline-width',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '5',
-      label: 'outline-width'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '4',
+      label: 'outline-width',
+      options: ['1', '2', '4', '8', '16', '32']
     }
   ],
   method: values => {

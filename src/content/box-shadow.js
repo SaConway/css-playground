@@ -9,27 +9,31 @@ export default {
   inputs: [
     {
       id: 'offset-x',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '10',
-      label: 'offset-x'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '2',
+      label: 'offset-x',
+      options: ['0', '1', '2', '4', '8', '16']
     },
     {
       id: 'offset-y',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '5',
-      label: 'offset-y'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '8',
+      label: 'offset-y',
+      options: ['0', '1', '2', '4', '8', '16']
     },
     {
       id: 'blur-radius',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '5',
-      label: 'blur-radius'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '8',
+      label: 'blur-radius',
+      options: ['1', '2', '4', '8', '16', '32']
     },
     {
       id: 'spread-radius',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '3',
-      label: 'spread-radius'
+      type: Enums.INPUT_TYPES.SELECT,
+      value: '2',
+      label: 'spread-radius',
+      options: ['1', '2', '4', '8', '16', '32']
     },
     {
       id: 'color',
