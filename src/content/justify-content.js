@@ -10,7 +10,7 @@ export default {
       type: Enums.INPUT_TYPES.SELECT,
       value: 'space-between',
       // label: 'justify-content',
-      options: ['start', 'end', 'flex-start', 'flex-end', 'center', 'left', 'space-between', 'space-around', 'space-evenly', 'stretch']
+      options: ['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']
     }
   ],
   method: values => {
