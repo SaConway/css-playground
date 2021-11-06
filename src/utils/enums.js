@@ -5,7 +5,7 @@ export default {
     COLOR: 'color'
   },
   PROPERTIES: {
-    ASPECT_RATIO: 'aspect-ratio',
+    // ASPECT_RATIO: 'aspect-ratio',
     BORDER: 'border',
     BORDER_RADIUS: 'border-radius',
     BOX_SHADOW: 'box-shadow',
