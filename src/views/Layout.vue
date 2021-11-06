@@ -32,7 +32,7 @@ import Colors from '@/utils/colors'
 import BaseInput from '@/components/BaseInput'
 
 export default {
-  name: 'PropertyLayout',
+  name: 'Layout',
   components: {
     BaseInput
   },
@@ -106,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 .property_layout {
   width: 100%;
-  max-width: 124rem;
+  max-width: calc(min(124rem, 85%));
   height: fit-content;
   margin: 0 auto;
   display: grid;
