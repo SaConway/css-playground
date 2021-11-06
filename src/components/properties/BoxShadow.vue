@@ -4,9 +4,9 @@
 
 <style lang="scss" scoped>
 .example {
-  background-color: var(--clr-primary);
-  color: var(--clr-base);
-  padding: 5rem;
+  border: 2px solid var(--clr-primary);
+  color: var(--clr-primary);
+  padding: 7rem;
   border-radius: var(--border-radius);
   text-align: center;
   transition: var(--transition-duration) var(--transition-timing-function);

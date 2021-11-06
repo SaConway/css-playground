@@ -16,7 +16,7 @@
 .example_item {
   width: 5rem;
   aspect-ratio: 1;
-  background-color: var(--clr-primary);
+  background-color: var(--clr-accent);
   border-radius: var(--border-radius);
 }
 </style>

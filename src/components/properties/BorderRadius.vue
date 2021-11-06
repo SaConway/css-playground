@@ -5,9 +5,9 @@
 <style lang="scss" scoped>
 .example {
   width: fit-content;
-  background-color: var(--clr-primary);
-  color: var(--clr-base);
-  padding: 8rem;
+  border: 2px solid var(--clr-primary);
+  color: var(--clr-primary);
+  padding: 7rem;
   text-align: center;
   transition: var(--transition-duration) var(--transition-timing-function);
 }
