@@ -11,7 +11,9 @@
     </div>
 
     <!-- OUTPUT CODE -->
-    <component :is="currentPropertyComponent" :style="componentStyle" />
+    <div class="property_output">
+      <component :is="currentPropertyComponent" :style="componentStyle" />
+    </div>
 
     <!-- VISUAL OUTPUT -->
     <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy Declaration</button>
@@ -104,7 +106,7 @@ export default {
 <style lang="scss" scoped>
 .property_layout {
   width: 100%;
-  max-width: 100rem;
+  max-width: 124rem;
   height: fit-content;
   margin: 0 auto;
   display: grid;
@@ -114,6 +116,7 @@ export default {
 
   @media (min-width: 900px) {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content auto;
   }
 }
 
@@ -130,6 +133,20 @@ export default {
   font-size: var(--fs-500);
   text-decoration: var(--clr-accent) wavy underline;
   text-underline-offset: 2px;
+}
+
+.property_output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25rem;
+  padding: 2rem;
+  border: 1px solid var(--clr-accent);
+  border-radius: var(--border-radius);
+
+  @media (min-width: 900px) {
+    height: 100%;
+  }
 }
 
 .copy_btn {

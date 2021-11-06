@@ -6,11 +6,10 @@
 
 <style lang="scss" scoped>
 .example {
+  width: 100%;
+  height: 100%;
+  min-height: 40rem;
   display: flex;
-  min-height: 45rem;
-  padding: 2rem;
-  border: 1px solid var(--clr-accent);
-  border-radius: var(--border-radius);
   transition: var(--transition-duration) var(--transition-timing-function);
 }
 
