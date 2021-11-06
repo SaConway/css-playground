@@ -14,6 +14,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['justify-content']}`
+    return {
+      'justify-content': `${values['justify-content']}`
+    }
   }
 }

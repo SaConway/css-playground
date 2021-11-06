@@ -22,6 +22,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['width']} / ${values['height']}`
+    return {
+      'aspect-ratio': `${values['width']} / ${values['height']}`
+    }
   }
 }

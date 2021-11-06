@@ -4,21 +4,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    value: {
-      type: String,
-      default: ''
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
 .example {
   display: flex;
-  justify-content: v-bind(value);
   gap: 1rem;
   padding: 2rem;
   border: 1px solid var(--clr-accent);

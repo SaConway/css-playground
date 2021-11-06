@@ -29,6 +29,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['outline-color']} ${values['outline-style']} ${values['outline-width']}px`
+    return {
+      outline: `${values['outline-color']} ${values['outline-style']} ${values['outline-width']}px`
+    }
   }
 }

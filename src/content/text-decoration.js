@@ -36,6 +36,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${values['text-decoration-thickness']}px`
+    return {
+      'text-decoration': `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${values['text-decoration-thickness']}px`
+    }
   }
 }

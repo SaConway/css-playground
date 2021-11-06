@@ -36,6 +36,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['border-top-left-radius']}px ${values['border-top-right-radius']}px ${values['border-bottom-right-radius']}px ${values['border-bottom-left-radius']}px`
+    return {
+      'border-radius': `${values['border-top-left-radius']}px ${values['border-top-right-radius']}px ${values['border-bottom-right-radius']}px ${values['border-bottom-left-radius']}px`
+    }
   }
 }

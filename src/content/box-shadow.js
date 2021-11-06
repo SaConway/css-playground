@@ -43,6 +43,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['offset-x']}px ${values['offset-y']}px ${values['blur-radius']}px ${values['spread-radius']}px ${values['color']}`
+    return {
+      'box-shadow': `${values['offset-x']}px ${values['offset-y']}px ${values['blur-radius']}px ${values['spread-radius']}px ${values['color']}`
+    }
   }
 }

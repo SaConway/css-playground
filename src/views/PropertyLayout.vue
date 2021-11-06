@@ -11,7 +11,7 @@
     </div>
 
     <!-- OUTPUT CODE -->
-    <component :is="currentPropertyComponent" :value="value" />
+    <component :is="currentPropertyComponent" :style="componentStyle" />
 
     <!-- VISUAL OUTPUT -->
     <button :class="['copy_btn', showCopySuccess ? 'success' : '']" @click="copyToClipboard">Copy Declaration</button>
@@ -44,7 +44,7 @@ export default {
     }
   },
   computed: {
-    value() {
+    componentStyle() {
       return this.property.method(this.values)
     },
     title() {
@@ -87,7 +87,9 @@ export default {
       this.values[inputId] = value
     },
     copyToClipboard() {
-      navigator.clipboard.writeText(this.output).then(() => {
+      const output = Object.entries(this.componentStyle).map(([key, value]) => `${key}: ${value};`)
+
+      navigator.clipboard.writeText(output).then(() => {
         this.showCopySuccess = true
         setTimeout(() => (this.showCopySuccess = false), 3000)
       })

@@ -29,6 +29,8 @@ export default {
     }
   ],
   method: values => {
-    return `${values['border-width']}px ${values['border-style']} ${values['border-color']}`
+    return {
+      border: `${values['border-width']}px ${values['border-style']} ${values['border-color']}`
+    }
   }
 }
