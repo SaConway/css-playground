@@ -9,7 +9,7 @@ export default {
     BORDER: 'border',
     BORDER_RADIUS: 'border-radius',
     BOX_SHADOW: 'box-shadow',
-    JUSTIFY_CONTENT: 'justify-content',
+    FLEX: 'flex',
     OUTLINE: 'outline',
     TEXT_DECORATION: 'text-decoration'
   }

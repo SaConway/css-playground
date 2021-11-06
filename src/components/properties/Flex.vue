@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 .example {
   display: flex;
-  gap: 1rem;
+  min-height: 45rem;
   padding: 2rem;
   border: 1px solid var(--clr-accent);
   border-radius: var(--border-radius);
@@ -16,7 +16,7 @@
 
 .example_item {
   width: 5rem;
-  aspect-ratio: 1 / 2;
+  aspect-ratio: 1;
   background-color: var(--clr-primary);
   border-radius: var(--border-radius);
 }
