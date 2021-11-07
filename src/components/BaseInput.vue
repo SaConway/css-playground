@@ -63,7 +63,7 @@ export default {
 
 <style lang="scss" scoped>
 .label {
-  font-size: var(--fs-300);
+  font-size: var(--fs-400);
 }
 
 .options {
@@ -79,6 +79,7 @@ export default {
   border: 1px solid var(--clr-accent);
   border-radius: var(--border-radius);
   padding: 1rem 2rem;
+  font-size: var(--fs-300);
   transition: var(--transition-duration) var(--transition-timing-function);
 
   &:active {
@@ -115,5 +116,6 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: var(--border-radius);
+  font-size: var(--fs-300);
 }
 </style>

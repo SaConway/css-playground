@@ -40,7 +40,7 @@ export default {
   text-decoration: none;
   padding: 1rem;
   display: block;
-  font-size: var(--fs-400);
+  font-size: var(--fs-300);
 
   &:not(.router-link-active) {
     @include hover;
