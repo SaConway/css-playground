@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p>Made by <a href="https://www.sageeconway.com">Sagee Conway</a></p>
+    <p>Made by <a class="link" href="https://www.sageeconway.com">Sagee Conway</a></p>
   </footer>
 </template>
 
@@ -15,5 +15,9 @@ export default {
   background-color: var(--clr-primary);
   color: var(--clr-base);
   padding: 1rem 2rem;
+}
+
+.link {
+  --clr-focus: var(--clr-base);
 }
 </style>

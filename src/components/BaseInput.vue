@@ -79,6 +79,11 @@ export default {
   border: 1px solid var(--clr-accent);
   border-radius: var(--border-radius);
   padding: 1rem 2rem;
+  transition: var(--transition-duration) var(--transition-timing-function);
+
+  &:active {
+    transform: translateY(5px);
+  }
 
   &.selected {
     &.select {
@@ -87,12 +92,12 @@ export default {
     }
 
     &.color {
-      border: 1px solid var(--clr-primary);
+      outline: 2px solid var(--clr-primary);
     }
   }
 
   &.color {
-    width: 3rem;
+    width: 2rem;
     aspect-ratio: 1;
     background-color: var(--value);
     border: none;
