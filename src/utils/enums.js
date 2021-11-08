@@ -9,6 +9,7 @@ export default {
     BORDER: 'border',
     BORDER_RADIUS: 'border-radius',
     BOX_SHADOW: 'box-shadow',
+    // GRID: 'grid',
     FLEX: 'flex',
     OUTLINE: 'outline',
     TEXT_DECORATION: 'text-decoration'

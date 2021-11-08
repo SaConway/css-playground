@@ -9,12 +9,6 @@ export default {
   inputs: [
     {
       id: '',
-      type: Enums.INPUT_TYPES.NUMBER,
-      value: '',
-      label: ''
-    },
-    {
-      id: '',
       type: Enums.INPUT_TYPES.SELECT,
       value: '',
       label: '',

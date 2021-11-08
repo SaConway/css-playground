@@ -70,7 +70,7 @@ export default {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .form_control {
