@@ -89,7 +89,8 @@ export default {
       this.values[inputId] = value
     },
     copyToClipboard() {
-      const output = Object.entries(this.componentStyle).map(([key, value]) => `${key}: ${value};`)
+      const declarations = Object.entries(this.componentStyle).map(([key, value]) => `${key}: ${value};`)
+      const output = declarations.join('\r\n')
 
       navigator.clipboard.writeText(output).then(() => {
         this.showCopySuccess = true
