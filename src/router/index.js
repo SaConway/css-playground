@@ -10,6 +10,11 @@ const routes = Object.values(Enums.PROPERTIES).map(property => {
   }
 })
 
+routes.push({
+  path: '',
+  redirect: `/${Enums.PROPERTIES.FLEX}`
+})
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes
