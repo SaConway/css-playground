@@ -30,14 +30,14 @@ export default {
     {
       id: 'text-decoration-thickness',
       type: Enums.INPUT_TYPES.SELECT,
-      value: '3',
+      value: 'thick',
       label: 'text-decoration-thickness',
-      options: ['1', '2', '3', '4', '5', '6']
+      options: ['thin', 'medium', 'thick']
     }
   ],
   method: values => {
     return {
-      'text-decoration': `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${values['text-decoration-thickness']}px`
+      'text-decoration': `${values['text-decoration-line']} ${values['text-decoration-style']} ${values['text-decoration-color']} ${Enums.THICKNESS[values['text-decoration-thickness']]}`
     }
   }
 }

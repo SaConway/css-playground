@@ -13,5 +13,10 @@ export default {
     FLEX: 'flex',
     OUTLINE: 'outline',
     TEXT_DECORATION: 'text-decoration'
+  },
+  THICKNESS: {
+    thin: '1px',
+    medium: '3px',
+    thick: '5px'
   }
 }

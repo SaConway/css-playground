@@ -10,9 +10,9 @@ export default {
     {
       id: 'border-width',
       type: Enums.INPUT_TYPES.SELECT,
-      value: '4',
+      value: 'thick',
       label: 'border-width',
-      options: ['1', '2', '4', '8', '16', '32']
+      options: ['thin', 'medium', 'thick']
     },
     {
       id: 'border-style',
@@ -30,7 +30,7 @@ export default {
   ],
   method: values => {
     return {
-      border: `${values['border-width']}px ${values['border-style']} ${values['border-color']}`
+      border: `${Enums.THICKNESS[values['border-width']]} ${values['border-style']} ${values['border-color']}`
     }
   }
 }

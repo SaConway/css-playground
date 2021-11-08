@@ -23,14 +23,14 @@ export default {
     {
       id: 'outline-width',
       type: Enums.INPUT_TYPES.SELECT,
-      value: '4',
+      value: 'thick',
       label: 'outline-width',
-      options: ['1', '2', '4', '8', '16', '32']
+      options: ['thin', 'medium', 'thick']
     }
   ],
   method: values => {
     return {
-      outline: `${values['outline-color']} ${values['outline-style']} ${values['outline-width']}px`
+      outline: `${values['outline-color']} ${values['outline-style']} ${Enums.THICKNESS[values['outline-width']]}`
     }
   }
 }
