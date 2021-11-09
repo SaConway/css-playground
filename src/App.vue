@@ -28,6 +28,10 @@ export default {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto min-content;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .layout_footer {
