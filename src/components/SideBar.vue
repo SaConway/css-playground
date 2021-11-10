@@ -1,8 +1,17 @@
 <template>
   <aside :class="['side_bar', isMobile && mobileOpen ? 'open' : '']">
-    <button class="toggle_btn" @click="mobileOpen = !mobileOpen">{{ mobileOpen ? 'Close' : 'Open' }}</button>
+    <!-- OPEN MENU (FOR MOBILE) -->
+    <button v-if="showOpenBtn" class="menu_btn" aria-label="Open menu" @click="mobileOpen = true">
+      <img src="../assets/menu.svg" alt="" />
+    </button>
 
-    <nav v-if="showNav">
+    <!-- CLOSE MENU (FOR MOBILE) -->
+    <button v-if="showCloseBtn" class="menu_btn" aria-label="Close menu" @click="mobileOpen = false">
+      <img src="../assets/close.svg" alt="" />
+    </button>
+
+    <!-- NAVIGATION -->
+    <nav v-if="showNav" class="nav">
       <ul class="nav_list">
         <li v-for="property in properties" :key="property">
           <router-link class="link" disabled="true" :to="property" @click="mobileOpen = false">{{ property }}</router-link>
@@ -29,8 +38,13 @@ export default {
       return this.isMobile ? this.mobileOpen : true
     },
     isMobile() {
-      console.log(window.innerWidth)
       return window.innerWidth < 600
+    },
+    showOpenBtn() {
+      return this.isMobile && !this.mobileOpen
+    },
+    showCloseBtn() {
+      return this.isMobile && this.mobileOpen
     }
   }
 }
@@ -42,32 +56,33 @@ export default {
   padding: 2rem;
 
   @media (max-width: 600px) {
+    padding: 0;
+    border-right: 0;
+    background-color: var(--clr-base);
+
     &.open {
-      border-right: 0;
-      background-color: var(--clr-base);
       position: fixed;
       inset: 0;
       z-index: 1;
       display: grid;
-      place-content: center;
+      place-content: stretch;
+    }
+
+    .menu_btn {
+      align-self: start;
+    }
+
+    .nav {
+      justify-self: center;
     }
   }
 }
 
-.toggle_btn {
-  display: none;
-
-  @media (max-width: 600px) {
-    display: block;
-    padding: 1.5rem 3rem;
-    color: var(--clr-primary);
-    background-color: transparent;
-    border: 1px solid var(--clr-accent);
-    border-radius: var(--border-radius);
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-  }
+.menu_btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 1rem;
+  width: 5rem;
 }
 
 .nav_list {
